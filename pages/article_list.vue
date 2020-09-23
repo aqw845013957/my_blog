@@ -35,9 +35,17 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 export default {
-  layout:'blog',
-  
+  layout: 'blog',
+  created() {
+    // 改变当前激活路由
+    this.changeActiveRoute(this.$nuxt.$route.path)
+  },
+  methods: {
+    // 监听当前激活路由
+    ...mapMutations('topMenu', ['changeActiveRoute']),
+  },
 }
 </script>
 
@@ -51,11 +59,16 @@ export default {
 }
 .selection {
   margin-left: 20px;
+  // 三个分类栏高
   .catalog-tag,
   .recent-artical,
   .contact-way {
     height: 30%;
     margin-bottom: 15px;
+  }
+  // 修改card头部下边框
+  .el-card__header {
+    border-bottom: 2px solid rgb(126, 142, 230);
   }
 }
 </style>

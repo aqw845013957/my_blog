@@ -3,20 +3,19 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 export default {
-  layout:'blog',
-   created() {
-    this.getActiveRoute()
+  layout: 'blog',
+  created() {
+    // 改变当前激活路由
+    this.changeActiveRoute(this.$nuxt.$route.path)
   },
-  methods:{
-     getActiveRoute() {
-      console.log(this.$nuxt.$route.path)
-      console.log('运行到这里了')
-    },
+  methods: {
+    // 监听当前激活路由
+    ...mapMutations('topMenu', ['changeActiveRoute']),
   },
 }
 </script>
 
 <style>
-
 </style>

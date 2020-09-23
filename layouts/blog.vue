@@ -7,7 +7,7 @@
         <el-row>
           <el-col :span="12" :offset="3" class="text">
             <!-- 头部菜单 -->
-            <el-menu mode="horizontal" class="top-menu" default-active="2">
+            <el-menu mode="horizontal" class="top-menu" :default-active="activeRoute">
               <el-menu-item index="1">
                 <nuxt-link to="/">
                   <template>
@@ -71,20 +71,15 @@
   </div>
 </template>
 <script>
+import { mapState } from 'vuex'
 export default {
   data() {
     return {
       searchInfo: '',
     }
   },
-  created() {
-    this.getActiveRoute()
-  },
-  methods:{
-    getActiveRoute() {
-      console.log(this.$nuxt.$route.path)
-      console.log('运行到这里了')
-    },
+   computed: {
+    ...mapState('topMenu', ['activeRoute']),
   },
 }
 </script>
