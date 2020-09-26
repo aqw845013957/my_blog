@@ -1,9 +1,9 @@
 <template>
   <div id="wrap">
     <!-- 主体 -->
-    <el-container>
+      <el-container>
       <!-- 头部 -->
-      <el-header>
+      <el-header v-show="activeRoute === '1' ? false : true">
         <el-row>
           <el-col :span="12" :offset="3" class="text">
             <!-- 头部菜单 -->
@@ -66,7 +66,7 @@
         <nuxt />
       </el-main>
       <!-- 尾部 -->
-      <el-footer>Footer</el-footer>
+      <el-footer v-show="activeRoute === '1' ? false : true">Footer</el-footer>
     </el-container>
   </div>
 </template>
@@ -121,5 +121,11 @@ export default {
 
 .el-footer {
   background-color: rgb(0, 0, 0);
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to  {
+  opacity: 0;
 }
 </style>

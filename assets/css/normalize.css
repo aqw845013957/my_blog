@@ -1,4 +1,5 @@
-html,body{
+html,
+body {
   height: 100%;
 }
 
@@ -60,8 +61,16 @@ p {
 }
 
 /* 解决边框溢出！！！！！ */
-.el-menu-item{
+.el-menu-item {
   padding: 0;
 }
 
-
+/* 路由切换动画 */
+.page-enter-active,
+.page-leave-active {
+  transition: opacity .5s;
+}
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+}
